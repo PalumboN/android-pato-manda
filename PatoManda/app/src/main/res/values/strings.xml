@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PatoManda</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="draw_a_card">De vuelta la carta</string>
+</resources>
