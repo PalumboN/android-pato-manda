@@ -3,5 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="draw_a_card">De vuelta la carta</string>
+
+    <string name="interstitial_ad_id">ca-app-pub-1928006837437146/2324431519</string>
 </resources>
