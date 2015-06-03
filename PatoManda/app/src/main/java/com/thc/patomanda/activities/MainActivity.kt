@@ -45,7 +45,7 @@ public class MainActivity : ActionBarActivity() {
         this.setCard(cardRepository.random())
         isBackFace = false
         gamesCount++
-        this.loadAdIfShould()
+        this.posibleAd()
     }
 
     private fun setCard(card: Card) {
@@ -64,20 +64,19 @@ public class MainActivity : ActionBarActivity() {
 
     // Como es asincrónico, el anuncio se mostrará cuando esté listo (Listener)
     private fun sendAdRequest() {
-        var  tManager = this.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-        var  deviceHash = tManager.getDeviceId()
-
         // Crear la solicitud de anuncio.
-        var adRequest = AdRequest.Builder().addTestDevice(deviceHash).build()
+        var adRequest = AdRequest.Builder().build()
 
         // Comenzar la carga del intersticial.
         interstitialAd.loadAd(adRequest)
     }
 
-    private fun loadAdIfShould() {
-        if (gamesCount == 2 || gamesCount == 5)
+    private fun posibleAd() {
+        if (shouldShowAd())
             this.sendAdRequest()
     }
+
+    private fun shouldShowAd() =  gamesCount.mod(4) == 0 || gamesCount == 2
 }
 
 class MyAdListener(interstitial: InterstitialAd) : AdListener() {
